@@ -171,7 +171,7 @@
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MINE BOW-TIE & CCM PRO v5.3 MASTER — Analisis Risiko Fatal Tambang, Infografis Interaktif, Geoteknik & Solusi Mitigasi Terpadu</title>
+    <title>MINE BOW-TIE & CCM PRO v5.5 ULTIMATE — Analisis Risiko Fatal Tambang, Infografis Interaktif, Geoteknik & Solusi Mitigasi Terpadu</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -379,6 +379,29 @@
 
         .leaflet-container { background: #020617 !important; }
     </style>
+
+    <style>
+      .capsule-translate { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #00B8D4; border-radius:9999px; background:rgba(0,20,30,.55); color:#7FEBFF; font-family:'JetBrains Mono',monospace; font-weight:700; cursor:pointer; transition:all .2s; }
+      .capsule-translate:hover { background:rgba(0,184,212,.15); box-shadow:0 0 12px rgba(0,184,212,.35); }
+      .capsule-translate i { color:#7FEBFF; }
+      .capsule-font { display:inline-flex; align-items:center; gap:8px; border:1.5px solid #C6A664; border-radius:9999px; background:rgba(30,25,10,.55); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; padding:4px 10px; }
+      .capsule-font .fsBtn { color:#fff; background:none; border:none; cursor:pointer; font-weight:800; font-family:inherit; }
+      .capsule-font .fsBtn:hover { color:#FFCC00; }
+      .capsule-font .fsMid { display:inline-flex; align-items:center; gap:4px; color:#FFCC00; background:none; border:none; cursor:pointer; font-family:inherit; }
+      .capsule-font .fsMid i { color:#FFCC00; }
+      .btn-dam-tailing { display:inline-flex; align-items:center; gap:6px; border:1.5px solid #34d399; border-radius:9999px; background:linear-gradient(135deg, rgba(6,78,59,.85), rgba(6,182,212,.25)); color:#a7f3d0; font-family:'JetBrains Mono',monospace; font-weight:800; cursor:pointer; transition:all .2s; letter-spacing:.03em; }
+      .btn-dam-tailing:hover { box-shadow:0 0 14px rgba(52,211,153,.45); color:#fff; }
+    </style>
+<style id="mineHdrStyle">
+#mineHdrToolbar .hdr-chip{height:38px;display:inline-flex;align-items:center;gap:7px;padding:0 14px;border-radius:12px;font-size:11px;white-space:nowrap;cursor:pointer;transition:all .15s;flex-shrink:0}
+#mineHdrToolbar .hdr-ico{height:38px;width:38px;display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:0;cursor:pointer;transition:all .15s;flex-shrink:0}
+#ctrlGroupDash{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap}
+#ctrlGroupDash .capsule-translate,#ctrlGroupChat .capsule-translate{height:38px;display:inline-flex;align-items:center;gap:6px;padding:0 12px;border-radius:12px}
+#ctrlGroupDash .capsule-font,#ctrlGroupChat .capsule-font{height:38px;display:inline-flex;align-items:center;gap:6px;padding:0 10px;border-radius:12px}
+#ctrlGroupDash .btn-dam-tailing,#ctrlGroupChat .btn-dam-tailing{height:38px;display:inline-flex;align-items:center;gap:7px;padding:0 14px;border-radius:12px;font-size:11px;white-space:nowrap}
+#ctrlGroupDash button{white-space:nowrap}
+@media (max-width:1279px){#mineHdrToolbar{justify-content:flex-start}}
+</style>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative selection:bg-emerald-500 selection:text-slate-950 pb-20">
 
@@ -486,62 +509,53 @@
     <!-- 3. HEADER COMMAND CENTER UTAMA                                            -->
     <!-- ========================================================================= -->
     <div class="w-full max-w-[1800px] mx-auto p-3 md:p-4 flex-1 flex flex-col gap-4 relative z-10">
-        <header class="w-full bg-[var(--bg-header)] backdrop-blur-md p-3.5 md:p-4 rounded-2xl border-2 border-[var(--border-color)] flex flex-col xl:flex-row justify-between items-center gap-3 shadow-xl">
-            <div class="flex items-center gap-3.5 w-full xl:w-auto min-w-0 flex-1">
-                <div class="p-3 bg-slate-950 rounded-xl border border-emerald-500/50 shrink-0 shadow-inner">
-                    <i class="fa-solid fa-diagram-project text-emerald-400 text-2xl md:text-3xl animate-pulse"></i>
-                </div>
-                <div class="min-w-0 flex-1">
-                    <div class="flex items-center gap-1.5 flex-wrap">
-                        <span class="bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">ICMM Critical Control Management</span>
-                        <span class="bg-amber-950/90 text-amber-300 border border-amber-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">SMKP Kepmen ESDM 1827K/2018</span>
-                        <span class="bg-cyan-950/90 text-cyan-300 border border-cyan-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">Geoteknik &amp; TSF Safety</span>
+        <header class="w-full bg-[var(--bg-header)] backdrop-blur-md p-3 md:p-4 rounded-2xl border-2 border-[var(--border-color)] shadow-xl flex flex-col gap-2.5">
+                <!-- ================= BARIS 1: IDENTITAS + JAM LIVE ================= -->
+                <div class="flex items-center gap-3 w-full min-w-0">
+                    <div class="p-2.5 bg-slate-950 rounded-xl border border-emerald-500/50 shrink-0 shadow-inner">
+                        <i class="fa-solid fa-diagram-project text-emerald-400 text-2xl md:text-2xl animate-pulse"></i>
                     </div>
-                    <h1 class="font-tech text-base md:text-xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-300 to-amber-400 leading-tight uppercase mt-1">
-                        SISTEM ANALISIS MODEL BOW-TIE RISIKO FATAL TAMBANG &amp; SOLUSI MITIGASI <span class="text-cyan-400 text-xs align-top">v5.3 PRO</span>
-                    </h1>
-                    <p class="text-[11px] font-mono text-[var(--text-muted)] mt-0.5 flex items-center gap-2 font-bold">
-                        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                        <span>Integrasi Fault Tree (Pencegahan) • Top Event • Event Tree (Mitigasi) • LOPA • TARP Radar SSR • Kalender CCV</span>
-                    </p>
+                    <div class="min-w-0 flex-1">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="bg-emerald-950/90 text-emerald-300 border border-emerald-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">ICMM Critical Control Management</span>
+                            <span class="bg-amber-950/90 text-amber-300 border border-amber-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">SMKP Kepmen ESDM 1827K/2018</span>
+                            <span class="bg-cyan-950/90 text-cyan-300 border border-cyan-500/50 text-[10px] font-mono px-2 py-0.5 rounded font-bold uppercase">Geoteknik &amp; TSF Safety</span>
+                        </div>
+                        <h1 class="font-tech text-sm md:text-lg font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-white via-emerald-300 to-amber-400 leading-tight uppercase mt-1">
+                            SISTEM ANALISIS MODEL BOW-TIE RISIKO FATAL TAMBANG &amp; SOLUSI MITIGASI
+                            <span class="text-cyan-400 text-xs align-top">v5.5 PRO</span>
+                        </h1>
+                        <p class="hidden md:flex text-[10px] font-mono text-[var(--text-muted)] mt-0.5 items-center gap-2 font-bold">
+                            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
+                            <span>Integrasi Fault Tree (Pencegahan) • Top Event • Event Tree (Mitigasi) • LOPA • TARP Radar SSR • Kalender CCV</span>
+                        </p>
+                    </div>
+                    <div class="hidden sm:flex items-center bg-slate-950 border border-emerald-500/40 px-3.5 shrink-0 shadow-lg rounded-xl" style="height:52px;">
+                        <i class="fa-regular fa-clock text-emerald-400 animate-pulse text-lg mr-2.5"></i>
+                        <div class="flex flex-col text-left">
+                            <span id="topDashDate" class="text-[10px] font-bold text-slate-400 font-mono uppercase">Memuat Hari...</span>
+                            <span id="topDashTime" class="text-sm md:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-tech tracking-widest">00:00:00 WIB</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- LIVE CLOCK WIB -->
-            <div class="flex items-center justify-center bg-slate-950 border border-emerald-500/40 px-3.5 py-2 rounded-xl shadow-lg shrink-0">
-                <i class="fa-regular fa-clock text-emerald-400 animate-pulse text-lg mr-2.5"></i>
-                <div class="flex flex-col text-left">
-                    <span id="topDashDate" class="text-[10px] font-bold text-slate-400 font-mono uppercase">Memuat Hari...</span>
-                    <span id="topDashTime" class="text-sm md:text-base font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400 font-tech tracking-widest">00:00:00 WIB</span>
+                <!-- ================= BARIS 2: TOOLBAR COMMAND BAR (rata & terdistribusi) ================= -->
+                <div id="mineHdrToolbar" class="flex flex-wrap items-center gap-2 w-full justify-between font-mono text-[11px] border-t border-[var(--border-color)] pt-2.5">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="openStudioModal()" class="hdr-chip bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/70 font-bold"><i class="fa-solid fa-microscope text-emerald-400"></i><span>STUDIO ANALISIS PRO</span></button>
+                        <button type="button" onclick="openCalendarModal()" class="hdr-chip bg-amber-950 hover:bg-amber-900 text-amber-300 border border-amber-500/70 font-bold"><i class="fa-solid fa-calendar-check text-amber-400"></i><span>KALENDER &amp; TO-DO CCV</span><span id="todoBadgeCount" class="px-1.5 bg-rose-600 text-white rounded-full text-[9px] font-black">4</span></button>
+                        <button type="button" onclick="toggleTarpHUD()" class="hdr-chip bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-500/70 font-bold"><i class="fa-solid fa-satellite-dish text-cyan-400"></i><span>HUD TARP</span></button>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="openAppsModal()" class="hdr-chip bg-gradient-to-r from-amber-500 via-lime-500 to-emerald-500 hover:brightness-110 text-slate-950 font-black"><i class="fa-solid fa-cubes-stacked"></i><span>MY APLIKASI (61)</span></button>
+                        <button type="button" onclick="openCreatorModal()" class="hdr-chip bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/50 font-bold"><i class="fa-solid fa-user-tie"></i><span>PENELITI/DEV</span></button>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2">
+                        <button type="button" onclick="toggleScreensaver(true)" class="hdr-ico bg-indigo-950 hover:bg-indigo-900 text-indigo-300 border border-indigo-500/60 font-bold" title="Screensaver Bumi 3D"><i class="fa-solid fa-tv"></i></button>
+                        <button type="button" onclick="toggleThemeMode()" class="hdr-ico bg-slate-900 border border-slate-700 text-amber-400" title="Ganti Tema Gelap/Terang"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+                        <div id="ctrlGroupDash"></div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- ACTION TOOLBAR -->
-            <div class="flex flex-wrap items-center justify-end gap-1.5 w-full xl:w-auto font-mono text-xs">
-                <button type="button" onclick="openStudioModal()" class="bg-emerald-950 hover:bg-emerald-900 text-emerald-300 border border-emerald-500/70 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow cursor-pointer transition">
-                    <i class="fa-solid fa-microscope text-emerald-400"></i> <span>STUDIO ANALISIS PRO</span>
-                </button>
-                <button type="button" onclick="openCalendarModal()" class="bg-amber-950 hover:bg-amber-900 text-amber-300 border border-amber-500/70 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow cursor-pointer transition relative">
-                    <i class="fa-solid fa-calendar-check text-amber-400"></i> <span>KALENDER &amp; TO-DO CCV</span>
-                    <span id="todoBadgeCount" class="px-1.5 py-0.2 bg-rose-600 text-white rounded-full text-[9px] font-black">4</span>
-                </button>
-                <button type="button" onclick="toggleTarpHUD()" class="bg-cyan-950 hover:bg-cyan-900 text-cyan-300 border border-cyan-500/70 font-bold px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow cursor-pointer transition">
-                    <i class="fa-solid fa-satellite-dish text-cyan-400"></i> <span>HUD TARP</span>
-                </button>
-                <button type="button" onclick="openAppsModal()" class="bg-gradient-to-r from-amber-500 via-lime-500 to-emerald-500 hover:brightness-110 text-slate-950 font-black px-3 py-1.5 rounded-lg flex items-center gap-1.5 shadow cursor-pointer transition">
-                    <i class="fa-solid fa-cubes-stacked"></i> <span>MY APLIKASI (61)</span>
-                </button>
-                <button type="button" onclick="openCreatorModal()" class="bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/50 font-bold px-2.5 py-1.5 rounded-lg flex items-center gap-1 cursor-pointer transition">
-                    <i class="fa-solid fa-user-tie"></i> <span>PENELITI/DEV</span>
-                </button>
-                <button type="button" onclick="toggleScreensaver(true)" class="bg-indigo-950 hover:bg-indigo-900 text-indigo-300 border border-indigo-500/60 font-bold px-2.5 py-1.5 rounded-lg cursor-pointer transition" title="Screensaver Bumi 3D">
-                    <i class="fa-solid fa-tv"></i>
-                </button>
-                <button type="button" onclick="toggleThemeMode()" class="bg-slate-900 border border-slate-700 text-amber-400 px-2.5 py-1.5 rounded-lg cursor-pointer transition" title="Ganti Tema Gelap/Terang">
-                    <i id="themeIcon" class="fa-solid fa-moon"></i>
-                </button>
-            </div>
-        </header>
+            </header>
 
         <!-- ========================================================================= -->
         <!-- 4. STRIP PERINGATAN KEGIATAN MENDATANG & 5 KARTU METRIK EKSEKUTIF         -->
@@ -831,7 +845,7 @@
                                     </filter>
                                 </defs>
                                 <rect x="0" y="0" width="1400" height="780" rx="14" fill="url(#bgGrad)" stroke="#10b981" stroke-width="2"/>
-                                <text x="700" y="42" text-anchor="middle" fill="#34d399" font-size="26" font-weight="900" font-family="'JetBrains Mono', monospace" letter-spacing="3">MINE BOW-TIE &amp; CCM PRO v5.3 MASTER</text>
+                                <text x="700" y="42" text-anchor="middle" fill="#34d399" font-size="26" font-weight="900" font-family="'JetBrains Mono', monospace" letter-spacing="3">MINE BOW-TIE &amp; CCM PRO v5.5 ULTIMATE</text>
                                 <text x="700" y="66" text-anchor="middle" fill="#94a3b8" font-size="13" font-family="'JetBrains Mono', monospace" letter-spacing="2">SKEMA PENCEGAHAN &amp; MITIGASI FATAL FAILURE — TAMBANG TERBUKA BATU HIJAU (SURUPT)</text>
 
                                 <!-- HAZARD -->
@@ -944,7 +958,7 @@
                                     <rect x="700" y="620" width="14" height="14" fill="#831843" stroke="#f472b6"/><text x="722" y="632" fill="#94a3b8" font-size="11">Konsekuensi (2)</text>
                                     <text x="700" y="672" text-anchor="middle" fill="#64748b" font-size="11">Referensi: CCPS Bow-Tie Analysis · ISO 31000 · TARP ESDM · Permen KKP 33/2023 · UU 1/1970 · PP 50/2012</text>
                                     <text x="700" y="694" text-anchor="middle" fill="#475569" font-size="10.5">Dikembangkan oleh Ir. Mohamad Hartadi — FB m.hartadi · Blog newbieonline7 · WA 0822-3103-6047</text>
-                                    <text x="700" y="716" text-anchor="middle" fill="#334155" font-size="10">MINE BOW-TIE &amp; CCM PRO v5.3 MASTER — Engine System Dynamics v5.3 + Infografis Interaktif</text>
+                                    <text x="700" y="716" text-anchor="middle" fill="#334155" font-size="10">MINE BOW-TIE &amp; CCM PRO v5.5 ULTIMATE — Engine System Dynamics v5.4 + Infografis Interaktif</text>
                                 </g>
                             </svg>
                         </div>
@@ -1394,6 +1408,7 @@
             <p class="text-[11px] text-slate-300 leading-relaxed text-justify font-sans">
                 Praktisi teknik sipil, geoteknik lereng &amp; keamanan bendungan (*Dam &amp; Tailing Storage Facility Safety*), serta pengembang aplikasi web simulasi numerik dan kecerdasan buatan (AI).
             </p>
+                <div id="ctrlGroupCreator" class="mt-3 flex justify-center"></div>
             <div class="space-y-2 text-left pt-1">
                 <a href="https://www.facebook.com/m.hartadi" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-blue-950/60 border border-blue-500/60 text-blue-300 flex justify-between items-center hover:bg-blue-900/60">
                     <span><i class="fa-brands fa-facebook mr-1.5"></i>Facebook: <b>m.hartadi</b></span>
@@ -1425,6 +1440,7 @@
                     <span class="text-[9.5px] text-emerald-400">Asisten ICMM CCM, Geoteknik, TARP &amp; Wikipedia</span>
                 </div>
             </div>
+                <div id="ctrlGroupChat" class="px-3 py-2 border-b border-emerald-500/30 bg-slate-950/70"></div>
             <button type="button" onclick="toggleChatPanel()" class="text-slate-400 hover:text-white cursor-pointer"><i class="fa-solid fa-xmark text-base"></i></button>
         </div>
 
@@ -1471,7 +1487,7 @@
     <footer class="w-full bg-slate-950/90 border-t border-emerald-500/30 py-3 px-4 mt-auto relative z-10 font-mono text-[11px] text-slate-400">
         <div class="max-w-[1800px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
             <div>
-                <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> <b>MINE BOW-TIE &amp; CCM PRO v5.3</b> — Sistem Analisis Risiko Fatal Pertambangan &amp; Geoteknik
+                <i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> <b>MINE BOW-TIE &amp; CCM PRO v5.4</b> — Sistem Analisis Risiko Fatal Pertambangan &amp; Geoteknik
             </div>
             <div class="flex items-center gap-3">
                 <span>Developed by <b class="text-emerald-400">Ir. Mohamad Hartadi</b></span>
@@ -3007,7 +3023,7 @@
 
         
         // =====================================================================
-        // v5.3: INFOGRAFIS INTERAKTIF — explain node, PNG download, sync evaluator
+        // v5.4: INFOGRAFIS INTERAKTIF — explain node, PNG download, sync evaluator
         // =====================================================================
         const INFO_NODES = {
             hazard: { t: "HAZARD — Kelongsoran Lereng Batuan Lahar", c: "border-rose-500/60 bg-rose-950/40", ic: "fa-triangle-exclamation",
@@ -3143,7 +3159,95 @@
             } catch (e) { if (typeof toast === 'function') toast('Gagal membuat PNG: ' + e.message); }
         }
 
+// =========================================================================
+// MODUL KONTROL ULTIMATE: TRANSLATE ID/EN · FONT SIZE · DAM TAILING CENTRE
+// Capsule Translate (cyan) + Capsule Font A-/A+ (gold) + Tombol Dam Tailing
+// =========================================================================
+const DAM_TAILING_URL = 'https://adikds-byte.github.io/BENDUNGAN-TAILING-COMMAND-CENTRE/';
+let APP_LANG = localStorage.getItem('mine_app_lang') || 'id';
+let APP_FONT = parseInt(localStorage.getItem('mine_app_font') || '100', 10);
+if (isNaN(APP_FONT)) APP_FONT = 100;
+const APP_FONT_MIN = 85, APP_FONT_MAX = 130, APP_FONT_STEP = 10;
+
+const I18N_MAP = [
+  { sel: 'header h1', id: 'SISTEM ANALISIS MODEL BOW-TIE RISIKO FATAL TAMBANG & SOLUSI MITIGASI TERPADU', en: 'BOW-TIE FATAL RISK ANALYSIS SYSTEM FOR MINING & INTEGRATED MITIGATION' },
+  { sel: '#btnViewBowtie', id: '1. DIAGRAM BOW-TIE INTERAKTIF', en: '1. INTERACTIVE BOW-TIE DIAGRAM' },
+  { sel: '#btnViewInfographic', id: 'INFOGRAFIS', en: 'INFOGRAPHIC' },
+  { sel: '#btnViewMap', id: '2. WEBGIS TAMBANG & TSF', en: '2. MINE & TSF WEBGIS' },
+  { sel: '#btnViewWindy', id: '3. RADAR CUACA WINDY', en: '3. WINDY WEATHER RADAR' }
+];
+
+function buildCtrlGroupHTML(compact) {
+  const pad = compact ? 'px-2 py-1 text-[10px]' : 'px-3 py-1.5 text-[11px]';
+  const tailLabel = compact ? 'DAM TAILING CC' : 'DAM TAILING COMMAND CENTRE';
+  return `
+  <div class="flex items-center gap-2 flex-wrap">
+    <button type="button" onclick="toggleAppLang()" class="capsule-translate ${pad}" title="Ganti Bahasa / Switch Language (ID-EN)">
+      <i class="fa-solid fa-language"></i><b class="langLabel">${APP_LANG === 'id' ? 'ID' : 'EN'}</b>
+    </button>
+    <div class="capsule-font ${pad}">
+      <button type="button" onclick="appFontAdj(-${APP_FONT_STEP})" class="fsBtn" title="Perkecil Teks / Smaller Text">A−</button>
+      <button type="button" onclick="appFontReset()" class="fsMid" title="Reset Ukuran Teks / Reset Font Size">
+        <i class="fa-solid fa-arrows-up-down"></i><b class="fsPctLabel">${APP_FONT}%</b>
+      </button>
+      <button type="button" onclick="appFontAdj(${APP_FONT_STEP})" class="fsBtn" title="Perbesar Teks / Larger Text">A+</button>
+    </div>
+    <button type="button" onclick="openDamTailingCentre()" class="btn-dam-tailing ${pad}" title="Buka Dam Tailing Command Centre">
+      <i class="fa-solid fa-mountain-sun"></i>${tailLabel}
+    </button>
+  </div>`;
+}
+
+function injectCtrlGroups() {
+  ['ctrlGroupDash', 'ctrlGroupChat', 'ctrlGroupCreator'].forEach(id => {
+    const host = document.getElementById(id);
+    if (host) {
+      const compact = (id !== 'ctrlGroupDash');
+      host.innerHTML = buildCtrlGroupHTML(compact);
+    }
+  });
+}
+
+// ---------- FONT SIZE ----------
+function applyAppFont() {
+  document.documentElement.style.fontSize = APP_FONT + '%';
+  localStorage.setItem('mine_app_font', String(APP_FONT));
+  document.querySelectorAll('.fsPctLabel').forEach(el => { el.textContent = APP_FONT + '%'; });
+}
+function appFontAdj(d) {
+  APP_FONT = Math.min(APP_FONT_MAX, Math.max(APP_FONT_MIN, APP_FONT + d));
+  applyAppFont();
+}
+function appFontReset() { APP_FONT = 100; applyAppFont(); }
+
+// ---------- TRANSLATE ----------
+function applyAppLang() {
+  localStorage.setItem('mine_app_lang', APP_LANG);
+  document.querySelectorAll('.langLabel').forEach(el => { el.textContent = APP_LANG === 'id' ? 'ID' : 'EN'; });
+  I18N_MAP.forEach(e => {
+    const el = document.querySelector(e.sel);
+    if (!el) return;
+    const target = APP_LANG === 'id' ? e.id : e.en;
+    // ganti hanya text node terakhir (pertahankan ikon <i>)
+    let last = null;
+    el.childNodes.forEach(n => { if (n.nodeType === 3 && n.textContent.trim()) last = n; });
+    if (last) last.textContent = ' ' + target + ' ';
+  });
+  document.documentElement.setAttribute('lang', APP_LANG);
+}
+function toggleAppLang() {
+  APP_LANG = APP_LANG === 'id' ? 'en' : 'id';
+  applyAppLang();
+  if (typeof toast === 'function') toast(APP_LANG === 'id' ? 'Bahasa: Indonesia' : 'Language: English');
+}
+
+// ---------- DAM TAILING ----------
+function openDamTailingCentre() {
+  window.open(DAM_TAILING_URL, '_blank', 'noopener');
+}
+
 window.addEventListener('DOMContentLoaded', () => {
+            injectCtrlGroups(); applyAppFont(); applyAppLang();
             updateLiveClocks();
             setInterval(updateLiveClocks, 1000);
 
